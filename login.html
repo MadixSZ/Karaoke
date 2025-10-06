@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Entrar — SingInGroup</title>
+  <link rel="icon" href="imagens/favicon.png" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+
+  <!-- CSS padrão -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- CSS específico da página de login -->
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light navbar-transparente">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="imagens/logo.png" width="142" alt="SingInGroup">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+          <i class="fas fa-bars text-white"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-principal">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="reservar.html" class="nav-link">Reservar sala</a></li>
+            <li class="nav-item"><a href="cardapio.html" class="nav-link">Cardápio</a></li>
+            <li class="nav-item"><a href="index.html#contato" class="nav-link">Contato</a></li>
+            <li class="nav-item divisor d-none d-md-block"></li>
+            <li class="nav-item"><a href="cadastro.html" class="nav-link">Inscrever-se</a></li>
+            <li class="nav-item"><a href="login.html" class="nav-link">Entrar</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo - Login -->
+  <main class="login-page">
+    <div class="login-card" role="main" aria-labelledby="loginTitle">
+      <h2 id="loginTitle">Entrar na sua conta</h2>
+
+      <!-- Form de login -->
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="email">E-mail ou usuário</label>
+          <input type="text" id="email" name="email" class="form-control" placeholder="seu@exemplo.com ou usuário" required>
+          <div class="invalid-feedback">Por favor, insira seu e-mail ou usuário.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <div class="input-group">
+            <input type="password" id="senha" name="senha" class="form-control" placeholder="********" required aria-describedby="togglePwd">
+            <div class="input-group-append">
+              <button class="btn btn-light" type="button" id="togglePwd" aria-label="Alternar visibilidade da senha" title="Mostrar/ocultar senha">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback">Por favor, insira sua senha.</div>
+          </div>
+        </div>
+
+        <div class="form-row align-items-center mb-3">
+          <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="lembrar" name="remember">
+              <label class="form-check-label text-muted" for="lembrar">Lembrar-me</label>
+            </div>
+          </div>
+          <div class="col text-right">
+            <a href="recuperar-senha.html" class="form-text">Esqueceu a senha?</a>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-roxo btn-block mb-3">Entrar</button>
+
+        <div class="text-center text-muted mb-2">ou entrar com</div>
+
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-light mr-2 social-btn" data-provider="google">
+            <i class="fab fa-google mr-2"></i> Google
+          </button>
+          <button type="button" class="btn btn-light social-btn" data-provider="facebook">
+            <i class="fab fa-facebook-f mr-2"></i> Facebook
+          </button>
+        </div>
+
+        <hr class="login-divider">
+
+        <div class="text-center mt-3">
+          <span class="text-muted">Não tem conta? </span>
+          <a href="cadastro.html">Criar conta</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="imagens/logo.png" width="100" alt="SingInGroup">
+        </div>
+        <div class="col-md-6 text-md-right">
+          <small class="text-muted">SingInGroup &copy; 2024 - Todos os direitos reservados</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  
+  <!-- Script específico da página de login -->
+  <script src="js/login.js"></script>
+</body>
+</html>

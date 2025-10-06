@@ -1,0 +1,203 @@
+/* Página de login */
+.login-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.login-card h2 {
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* Estilos do formulário */
+.form-control {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(124,37,248,0.8);
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(124,37,248,0.25);
+}
+
+.form-control::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+/* Botão de alternar senha */
+.input-group-append .btn-light {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+  transition: all 0.3s ease;
+}
+
+.input-group-append .btn-light:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* Botão roxo (já definido no base.css, mas reforçando) */
+.btn-roxo {
+  background: #7c25f8;
+  color: #fff;
+  border-radius: 500px;
+  padding: 12px 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-roxo:hover {
+  background: #6207e3;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124,37,248,0.3);
+}
+
+/* Botões sociais */
+.social-btn {
+  border-radius: 500px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.social-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Links */
+.form-text a {
+  color: #9bf0e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form-text a:hover {
+  color: #7c25f8;
+}
+
+.text-muted {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+.login-divider {
+  border-color: rgba(255,255,255,0.06);
+  margin: 1.5rem 0;
+}
+
+/* Feedback de validação */
+.invalid-feedback {
+  display: none;
+  color: #ff6b6b;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.was-validated .form-control:invalid {
+  border-color: #ff6b6b;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Estados de loading e sucesso */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 2px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.login-success {
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.login-error {
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+  .login-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .login-page {
+    padding: 1rem;
+    min-height: calc(100vh - 100px);
+  }
+  
+  .btn-roxo {
+    padding: 10px 20px;
+  }
+  
+  .social-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .d-flex.justify-content-center {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .d-flex.justify-content-center .social-btn {
+    margin-right: 0 !important;
+  }
+}

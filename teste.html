@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Finalizar Pedido — SingInGroup</title>
+  <link rel="icon" href="imagens/favicon.png" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+
+  <style>
+    /* Mantém estilo visual parecido com o site fornecido */
+    body {
+      background: url('imagens/fundo.jpg'), url('imagens/ruido.png'), linear-gradient(50deg, #ff4169, #7c26f8);
+      background-attachment: fixed;
+      font-family: Helvetica, Arial, sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      padding-bottom: 120px; /* espaço para footer */
+    }
+
+    nav.navbar-transparente { background: rgba(0,0,0,0.55); padding: 12px 0; }
+
+    .container-main { padding: 2rem 1rem; }
+
+    .card-panel {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      padding: 1rem;
+    }
+
+    .item-thumb { width:72px; height:56px; background-size:cover; background-position:center; border-radius:8px; overflow:hidden; flex-shrink:0; }
+    .item-row { display:flex; gap:12px; align-items:center; }
+
+    .qty-controls button { min-width:32px; }
+
+    .summary-box { background: rgba(0,0,0,0.75); border-radius:10px; padding:16px; }
+    .summary-box .total { font-weight:900; font-size:1.35rem; color:#ffd166; }
+
+    .step { margin-bottom:1rem; }
+    .step h5 { margin-bottom:0.75rem; }
+
+    footer { position:fixed; left:0; right:0; bottom:0; background: rgba(0,0,0,0.55); padding:12px 0; }
+
+    @media (min-width:992px){
+      .layout-grid { display:grid; grid-template-columns: 1fr 360px; gap:1.5rem; }
+    }
+
+    @media (max-width:991px){
+      .summary-box { margin-top:1rem; }
+    }
+
+    /* pequenos ajustes visuais para inputs */
+    .form-control, .custom-select { background: rgba(255,255,255,0.04); color:#fff; border:1px solid rgba(255,255,255,0.06); }
+    .form-control::placeholder { color: rgba(255,255,255,0.5); }
+    .btn-roxo { background:#7c25f8; color:#fff; border-radius:999px; font-weight:700; }
+    .btn-outline-light { color:#fff; border-color: rgba(255,255,255,0.12); }
+
+    .badge-reservation { display:inline-block; padding:8px 12px; background: rgba(255,255,255,0.04); border-radius:8px; margin-bottom:12px; }
+
+    .must-reserve { padding:14px; border-radius:8px; background: rgba(255,50,50,0.08); border:1px solid rgba(255,50,50,0.12); color:#ffdede; margin-bottom:12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light navbar-transparente">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="imagens/logo.png" width="142" alt="SingInGroup">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+          <i class="fas fa-bars text-white"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-principal">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="reservar.html" class="nav-link">Reservar sala</a></li>
+            <li class="nav-item"><a href="cardapio.html" class="nav-link">Cardápio</a></li>
+            <li class="nav-item"><a href="index.html#contato" class="nav-link">Contato</a></li>
+            <li class="nav-item divisor d-none d-md-block"></li>
+            <li class="nav-item"><a href="inscrever.html" class="nav-link">Inscrever-se</a></li>
+            <li class="nav-item"><a href="login.html" class="nav-link">Entrar</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container container-main">
+    <div class="card-panel">
+      <h2 style="font-weight:900; margin-bottom:0.25rem;">Finalizar Pedido</h2>
+      <p class="lead" style="color:rgba(255,255,255,0.85);">Pedido disponível somente para usuários com reserva ativa. Se não houver reserva, você será direcionado para reservar uma sala.</p>
+
+      <div id="mustReserveAlert" class="must-reserve" style="display:none;">
+        <strong>É obrigatório ter uma reserva ativa para realizar pedidos.</strong>
+        <div class="mt-2">Clique no botão abaixo para fazer sua reserva antes de continuar.</div>
+        <div class="mt-3"><button id="goReserveBtn" class="btn btn-roxo btn-sm">Reservar sala</button></div>
+      </div>
+
+      <div class="layout-grid" id="orderContent">
+        <section>
+          <!-- Badge de reserva será injetado aqui -->
+          <div id="reservationBadgeHolder"></div>
+
+          <!-- Passo 1: Itens -->
+          <div class="step" id="step-items">
+            <h5>1. Revisar Itens</h5>
+            <div id="itemsList"></div>
+            <div class="mt-3 d-flex justify-content-between align-items-center">
+              <div class="text-muted">Adicionar observação geral:</div>
+              <textarea id="orderNote" class="form-control" rows="2" style="max-width:60%; min-width:180px; background:rgba(255,255,255,0.03);"></textarea>
+            </div>
+          </div>
+
+          <!-- Observação: o formulário de dados foi removido — obrigatoriamente vinculado à reserva -->
+
+          <!-- Passo 3: Pagamento -->
+          <div class="step" id="step-payment">
+            <h5>2. Pagamento & Confirmação</h5>
+            <div class="form-group">
+              <label>Método de pagamento</label>
+              <div class="d-flex flex-wrap" style="gap:8px;">
+                <button class="btn btn-outline-light btn-sm pay-method active" data-method="cash">Dinheiro</button>
+                <button class="btn btn-outline-light btn-sm pay-method" data-method="card">Cartão</button>
+                <button class="btn btn-outline-light btn-sm pay-method" data-method="pix">PIX</button>
+                <button class="btn btn-outline-light btn-sm pay-method" data-method="pay_on_exit">Pagar na saída</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Troco para (se for em dinheiro)</label>
+              <input id="changeFor" class="form-control" placeholder="Ex: R$ 100,00">
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <button id="backToMenu" class="btn btn-outline-light">Voltar ao cardápio</button>
+              <button id="confirmBtn" class="btn btn-roxo">Confirmar pedido</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Resumo lateral -->
+        <aside>
+          <div class="summary-box">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <strong>Resumo do Pedido</strong>
+              <small id="itemCount" class="text-muted">0 itens</small>
+            </div>
+
+            <div id="summaryItems" style="max-height:280px; overflow:auto; margin-bottom:12px;"></div>
+
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="small text-muted">Sub-total</div>
+              <div id="subTotal">R$ 0,00</div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="small text-muted">Taxa (simulada)</div>
+              <div id="taxFee">R$ 0,00</div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="small text-muted">Total</div>
+              <div id="grandTotal" class="total">R$ 0,00</div>
+            </div>
+
+            <div class="mt-3 text-center">
+              <button id="editCartBtn" class="btn btn-outline-light btn-sm">Editar itens</button>
+              <button id="placeOrderMobile" class="btn btn-roxo btn-sm mt-2" style="width:100%;">Confirmar pedido</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de confirmação -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background:rgba(0,0,0,0.85); color:#fff; border:none;">
+        <div class="modal-header">
+          <h5 class="modal-title">Pedido Confirmado</h5>
+          <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p id="confirmMessage">Seu pedido foi registrado no modo visual.</p>
+          <div class="mt-3 small text-muted">Dados enviados (simulação):</div>
+          <pre id="confirmPayload" style="background:rgba(255,255,255,0.03); padding:10px; border-radius:6px; color:#fff; overflow:auto; max-height:240px;"></pre>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-light" data-dismiss="modal">Fechar</button>
+          <button class="btn btn-roxo" id="doneBtn">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><img src="imagens/logo.png" width="142" alt=""></div>
+      <div style="color: rgba(255,255,255,0.8)">SingInGroup — Pedido (simulação)</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <script>
+    (function(){
+      // Se quiser permitir envio real ao backend, coloque true e ajuste API_ENDPOINT
+      const API_ENABLED = false; // <-- mudar para true se já tiver backend
+      const API_ENDPOINT = '/api/orders'; // ajustar conforme seu backend
+
+      // Utilitários
+      function centsToBRL(cents){ return 'R$ ' + (cents/100).toFixed(2).replace('.', ','); }
+      function parseBRLtoCents(str){ if (!str) return 0; const cleaned = str.replace(/[R$\\s\\.]/g, '').replace(',', '.'); const v = parseFloat(cleaned) || 0; return Math.round(v*100); }
+
+      // Recupera carrinho do localStorage (chave singin_cart)
+      let cart = [];
+      try { const saved = localStorage.getItem('singin_cart'); if (saved) cart = JSON.parse(saved); } catch(e){ cart = []; }
+
+      // Recupera user e reservation (podem ser definidos pelo server-side ou salvos em localStorage)
+      const currentUser = window.currentUser || (function(){ try { return JSON.parse(localStorage.getItem('singin_user')); } catch(e){ return null; } })();
+      const currentReservation = window.currentReservation || (function(){ try { return JSON.parse(localStorage.getItem('singin_reservation')); } catch(e){ return null; } })();
+
+      // Exemplo quando não há carrinho (apenas para demo)
+      if (!cart || cart.length === 0){
+        cart = [
+          {name: 'Batata Rústica', price:2700, qty:1, thumb:'imagens/batata.jpg'},
+          {name: 'SingIn Mojito', price:2900, qty:2, thumb:'imagens/mojito.jpg'}
+        ];
+      }
+
+      // Elementos
+      const itemsList = document.getElementById('itemsList');
+      const summaryItems = document.getElementById('summaryItems');
+      const subTotalEl = document.getElementById('subTotal');
+      const taxFeeEl = document.getElementById('taxFee');
+      const grandTotalEl = document.getElementById('grandTotal');
+      const itemCountEl = document.getElementById('itemCount');
+      const orderNote = document.getElementById('orderNote');
+      const pickupMode = document.getElementById('pickupMode');
+      const tableNumberWrap = document.getElementById('tableNumberWrap');
+      const tableNumber = document.getElementById('tableNumber');
+      const confirmBtn = document.getElementById('confirmBtn');
+      const placeOrderMobile = document.getElementById('placeOrderMobile');
+      const confirmModal = $('#confirmModal');
+      const confirmPayload = document.getElementById('confirmPayload');
+      const reservationBadgeHolder = document.getElementById('reservationBadgeHolder');
+      const mustReserveAlert = document.getElementById('mustReserveAlert');
+      const goReserveBtn = document.getElementById('goReserveBtn');
+      const orderContent = document.getElementById('orderContent');
+
+      let linkedReservationId = null;
+
+      // Se existir reserva, preenche badge e oculta o formulário de dados (usamos dados da reserva)
+      function applyReservationBehavior(){
+        if (!currentReservation){
+          // bloqueia pedido e mostra alerta
+          mustReserveAlert.style.display = 'block';
+          orderContent.style.opacity = '0.5';
+          orderContent.style.pointerEvents = 'none';
+          // desativa botões de confirmação
+          confirmBtn.disabled = true;
+          placeOrderMobile.disabled = true;
+          document.getElementById('editCartBtn').disabled = true;
+          // botão de reservar leva para a página de reserva
+          goReserveBtn.addEventListener('click', function(){ window.location.href = 'reservar.html'; });
+          return;
+        }
+
+        linkedReservationId = currentReservation.id || null;
+
+        const badge = document.createElement('div'); badge.className = 'badge-reservation';
+        const startsAt = currentReservation.starts_at ? (' — ' + currentReservation.starts_at) : '';
+        const holderName = currentReservation.holder_name || currentReservation.name || currentUser?.name || 'Titular da reserva';
+        badge.innerHTML = `<strong>Pedido vinculado à reserva #${currentReservation.id}</strong><div style="font-size:.9rem;color:rgba(255,255,255,0.75)">Sala: ${currentReservation.room || currentReservation.table || '—'}${startsAt} — ${holderName}</div>`;
+        reservationBadgeHolder.appendChild(badge);
+
+        // preenche número da sala em background (mantemos tableNumber para envio / leitura)
+        tableNumber.value = currentReservation.room || currentReservation.table || '';
+        // garantia: pickup como 'table'
+        if (pickupMode) pickupMode.value = 'table';
+      }
+
+      // renderiza itens do carrinho
+      function renderItems(){
+        itemsList.innerHTML = '';
+        summaryItems.innerHTML = '';
+        let total = 0, count = 0;
+
+        cart.forEach((it, idx) => {
+          const wrap = document.createElement('div'); wrap.className = 'd-flex align-items-center mb-2 p-2';
+          wrap.style.borderBottom = '1px dashed rgba(255,255,255,0.03)';
+
+          const row = document.createElement('div'); row.className = 'item-row'; row.style.width = '100%';
+          const thumb = document.createElement('div'); thumb.className = 'item-thumb'; thumb.style.backgroundImage = `url('${it.thumb || 'imagens/placeholder.png'}')`;
+          const info = document.createElement('div'); info.style.flex = '1';
+          info.innerHTML = `<strong>${it.name}</strong><div style="font-size:.9rem; color:rgba(255,255,255,0.7)">${centsToBRL(it.price)}</div>`;
+
+          const qtyBox = document.createElement('div'); qtyBox.className = 'qty-controls d-flex align-items-center'; qtyBox.style.gap = '6px';
+          qtyBox.innerHTML = `
+            <div class="input-group input-group-sm" style="width:120px">
+              <div class="input-group-prepend">
+                <button class="btn btn-sm btn-outline-light" data-action="dec" data-idx="${idx}">-</button>
+              </div>
+              <input type="number" class="form-control form-control-sm text-center" value="${it.qty}" min="0" data-idx="${idx}">
+              <div class="input-group-append">
+                <button class="btn btn-sm btn-outline-light" data-action="inc" data-idx="${idx}">+</button>
+              </div>
+            </div>
+          `;
+
+          const removeBtn = document.createElement('button'); removeBtn.className = 'btn btn-sm btn-outline-light ml-2'; removeBtn.textContent = 'Remover'; removeBtn.dataset.idx = idx;
+
+          row.appendChild(thumb); row.appendChild(info); row.appendChild(qtyBox); row.appendChild(removeBtn);
+          wrap.appendChild(row); itemsList.appendChild(wrap);
+
+          // resumo lateral
+          const srow = document.createElement('div'); srow.className = 'd-flex justify-content-between align-items-center mb-2';
+          srow.innerHTML = `<div>${it.qty} x ${it.name}</div><div>${centsToBRL(it.qty * it.price)}</div>`;
+          summaryItems.appendChild(srow);
+
+          total += it.qty * it.price; count += it.qty;
+        });
+
+        // calculos simples
+        const tax = Math.round(total * 0.05); // taxa fake 5%
+        subTotalEl.textContent = centsToBRL(total);
+        taxFeeEl.textContent = centsToBRL(tax);
+        grandTotalEl.textContent = centsToBRL(total + tax);
+        itemCountEl.textContent = `${count} item${count!==1? 's':''}`;
+
+        bindItemControls();
+      }
+
+      function bindItemControls(){
+        itemsList.querySelectorAll('input[type=number]').forEach(input => {
+          input.addEventListener('change', function(){
+            const idx = parseInt(this.dataset.idx, 10);
+            let v = Math.max(0, parseInt(this.value || '0', 10));
+            cart[idx].qty = v;
+            if (v === 0) cart.splice(idx,1);
+            persistAndRender();
+          });
+        });
+
+        itemsList.querySelectorAll('button[data-action]').forEach(btn => {
+          btn.addEventListener('click', function(){
+            const idx = parseInt(this.dataset.idx, 10);
+            const act = this.dataset.action;
+            if (act === 'inc') cart[idx].qty++;
+            else { cart[idx].qty = Math.max(0, cart[idx].qty-1); if (cart[idx].qty===0) cart.splice(idx,1); }
+            persistAndRender();
+          });
+        });
+
+        itemsList.querySelectorAll('button').forEach(b => {
+          if (b.textContent.trim() === 'Remover'){
+            b.addEventListener('click', function(){ const idx = parseInt(this.dataset.idx,10); cart.splice(idx,1); persistAndRender(); });
+          }
+        });
+      }
+
+      function persistAndRender(){
+        try { localStorage.setItem('singin_cart', JSON.stringify(cart)); } catch(e){}
+        renderItems();
+      }
+
+      // manipula modo de retirada — se existir
+      if (pickupMode) pickupMode.addEventListener('change', function(){ tableNumberWrap.style.display = this.value === 'table' ? 'block' : 'none'; });
+
+      // métodos de pagamento (visual)
+      document.querySelectorAll('.pay-method').forEach(btn => { btn.addEventListener('click', function(){ document.querySelectorAll('.pay-method').forEach(b=>b.classList.remove('active')); this.classList.add('active'); }); });
+
+      // botões
+      document.getElementById('backToMenu').addEventListener('click', function(){ window.location.href = 'cardapio.html'; });
+      document.getElementById('editCartBtn').addEventListener('click', function(){ window.location.href = 'cardapio.html'; });
+
+      function buildPayload(){
+        // exigimos reserva; se não houver, retornamos null
+        if (!linkedReservationId || !currentReservation) return null;
+
+        const paymentMethod = document.querySelector('.pay-method.active')?.dataset?.method || 'cash';
+
+        const customer = {
+          name: currentReservation.holder_name || currentReservation.name || currentUser?.name || null,
+          phone: currentReservation.phone || currentUser?.phone || null
+        };
+
+        return {
+          user_id: currentUser?.id || null,
+          reservation_id: linkedReservationId,
+          customer,
+          mode: 'table',
+          table: currentReservation.room || currentReservation.table || null,
+          note: orderNote.value || null,
+          payment: paymentMethod,
+          changeFor: document.getElementById('changeFor')?.value || null,
+          items: cart.map(i=>({ name:i.name, qty:i.qty, price_cents:i.price })),
+          totals: { subtotal_cents: (function(){ let s=0; cart.forEach(i=>s+=i.qty*i.price); return s; })() }
+        };
+      }
+
+      async function sendOrderToApi(payload){
+        if (!API_ENABLED) return { ok: false, simulated: true, payload };
+        try{
+          const res = await fetch(API_ENDPOINT, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload) });
+          const json = await res.json();
+          return { ok: res.ok, simulated:false, response: json };
+        }catch(e){ return { ok:false, error: e.message } }
+      }
+
+      function showConfirmation(result){
+        // Se selecionado pagar na saída, explicamos no modal
+        const paymentMethod = document.querySelector('.pay-method.active')?.dataset?.method;
+        if (paymentMethod === 'pay_on_exit'){
+          document.getElementById('confirmMessage').textContent = 'Pagamento selecionado: pagar na saída. O estabelecimento cobrará quando você encerrar a sessão/reserva.';
+        } else if (result.simulated){
+          document.getElementById('confirmMessage').textContent = 'Simulação: pedido pronto localmente (modo demo).';
+        } else if (result.ok){
+          document.getElementById('confirmMessage').textContent = 'Pedido enviado com sucesso!';
+        } else {
+          document.getElementById('confirmMessage').textContent = 'Erro ao enviar pedido.';
+        }
+
+        confirmPayload.textContent = JSON.stringify(result, null, 2);
+        confirmModal.modal('show');
+      }
+
+      confirmBtn.addEventListener('click', async function(){
+        if (cart.length===0) return alert('Seu carrinho está vazio.');
+        const payload = buildPayload();
+        if (!payload) return alert('Pedido só pode ser feito se vinculado a uma reserva ativa. Por favor, faça/resgate sua reserva.');
+        const result = await sendOrderToApi(payload);
+        showConfirmation(result);
+      });
+
+      placeOrderMobile.addEventListener('click', async function(){
+        if (cart.length===0) return alert('Seu carrinho está vazio.');
+        const payload = buildPayload();
+        if (!payload) return alert('Pedido só pode ser feito se vinculado a uma reserva ativa. Por favor, faça/resgate sua reserva.');
+        const result = await sendOrderToApi(payload);
+        showConfirmation(result);
+      });
+
+      // inicializa comportamento
+      applyReservationBehavior();
+      renderItems();
+
+      // botão Done fecha modal e redireciona para cardápio
+      document.getElementById('doneBtn').addEventListener('click', function(){ confirmModal.modal('hide'); window.location.href = 'cardapio.html'; });
+
+    })();
+  </script>
+</body>
+</html>

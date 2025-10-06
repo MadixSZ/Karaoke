@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>SingInGroup - Karaokê & Bar</title>
+  <link rel="icon" href="imagens/favicon.png" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light navbar-transparente">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="imagens/logo.png" width="142" alt="SingInGroup">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+          <i class="fas fa-bars text-white"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-principal">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="reservar.html" class="nav-link">Reservar sala</a></li>
+            <li class="nav-item"><a href="cardapio.html" class="nav-link">Cardápio</a></li>
+            <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+            <li class="nav-item divisor d-none d-md-block"></li>
+            <li class="nav-item"><a href="inscrever.html" class="nav-link">Inscrever-se</a></li>
+            <li class="nav-item"><a href="login.html" class="nav-link">Entrar</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Carousel -->
+  <section id="hero" class="hero-section">
+    <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mainCarousel" data-slide-to="1"></li>
+        <li data-target="#mainCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="carousel-background" style="background-image: url('imagens/carousel1.jpg');"></div>
+          <div class="carousel-caption">
+            <h1 class="display-3">Sua Voz, Sua Noite</h1>
+            <p class="lead">O melhor karaokê bar da cidade com salas privativas, drinks exclusivos e muita diversão</p>
+            <a href="reservar.html" class="btn btn-primary btn-lg mt-3">Reservar Agora</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-background" style="background-image: url('imagens/carousel2.jpg');"></div>
+          <div class="carousel-caption">
+            <h1 class="display-3">Cardápio Exclusivo</h1>
+            <p class="lead">Porções, pratos especiais e drinks autorais para acompanhar sua performance</p>
+            <a href="cardapio.html" class="btn btn-primary btn-lg mt-3">Ver Cardápio</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-background" style="background-image: url('imagens/carousel3.jpg');"></div>
+          <div class="carousel-caption">
+            <h1 class="display-3">Eventos Especiais</h1>
+            <p class="lead">Noites temáticas, happy hours e promoções imperdíveis toda semana</p>
+            <a href="#destaques" class="btn btn-primary btn-lg mt-3">Ver Eventos</a>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Seção Quem Somos -->
+  <section id="sobre" class="caixa bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title text-dark">SingInGroup</h2>
+          <h3 class="text-primary mb-4">Mais que um karaokê, uma experiência</h3>
+          <p class="lead text-dark">No SingInGroup, transformamos noites comuns em shows inesquecíveis. Combinamos a paixão pela música com gastronomia de qualidade em um ambiente único e acolhedor.</p>
+          
+          <div class="features-grid mt-5">
+            <div class="feature-item">
+              <i class="fas fa-microphone-alt text-primary"></i>
+              <div>
+                <h5 class="text-dark">Salas Profissionais</h5>
+                <p class="text-muted">Sistema de som de alta qualidade e amplo repertório</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-cocktail text-primary"></i>
+              <div>
+                <h5 class="text-dark">Drinks Exclusivos</h5>
+                <p class="text-muted">Coquetéis autorais criados por nossos bartenders</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-users text-primary"></i>
+              <div>
+                <h5 class="text-dark">Para Todos os Grupos</h5>
+                <p class="text-muted">Salas de 2 a 20 pessoas para qualquer ocasião</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-image">
+            <img src="imagens/karaoke.jpeg" alt="Ambiente SingInGroup" class="img-fluid rounded-lg shadow-lg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Destaques -->
+  <section id="destaques" class="caixa bg-light">
+    <div class="container">
+      <h2 class="section-title text-center text-dark">Destaques da Semana</h2>
+      <p class="text-center text-muted mb-5">Confira nossa programação especial e promoções</p>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card-highlight">
+            <div class="card-icon">
+              <i class="fas fa-guitar"></i>
+            </div>
+            <h4 class="text-dark">Noite do Rock</h4>
+            <p class="text-muted">Todas as Quintas</p>
+            <p class="text-dark">Chope em dobro até às 22h + repertório especial de rock clássico e alternativo</p>
+            <div class="promo-badge">PROMO</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card-highlight">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h4 class="text-dark">Top Hits</h4>
+            <p class="text-muted">Sextas Especiais</p>
+            <p class="text-dark">Os maiores sucessos do momento + combo de drinks com 20% de desconto para grupos</p>
+            <div class="promo-badge">POPULAR</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card-highlight">
+            <div class="card-icon">
+              <i class="fas fa-glass-cheers"></i>
+            </div>
+            <h4 class="text-dark">Happy Hour</h4>
+            <p class="text-muted">Segunda a Quarta</p>
+            <p class="text-dark">Das 18h às 20h, drinks selecionados pela metade do preço + porções gratuitas</p>
+            <div class="promo-badge">ECONÔMICO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Top Músicas -->
+  <section id="top-musicas" class="caixa bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="section-title text-center text-dark">Top 5 Músicas Mais Cantadas 🎶</h2>
+          <p class="text-center text-muted mb-5">As favoritas da nossa comunidade</p>
+          
+          <div class="music-ranking">
+            <div class="music-item">
+              <div class="music-rank">1</div>
+              <div class="music-info">
+                <h5 class="text-dark">Bohemian Rhapsody</h5>
+                <p class="text-muted">Queen</p>
+              </div>
+              <div class="music-stats">
+                <span class="plays text-muted">2.4k</span>
+                <i class="fas fa-play text-primary"></i>
+              </div>
+            </div>
+            <div class="music-item">
+              <div class="music-rank">2</div>
+              <div class="music-info">
+                <h5 class="text-dark">Evidências</h5>
+                <p class="text-muted">Chitãozinho & Xororó</p>
+              </div>
+              <div class="music-stats">
+                <span class="plays text-muted">1.9k</span>
+                <i class="fas fa-play text-primary"></i>
+              </div>
+            </div>
+            <div class="music-item">
+              <div class="music-rank">3</div>
+              <div class="music-info">
+                <h5 class="text-dark">Shape of You</h5>
+                <p class="text-muted">Ed Sheeran</p>
+              </div>
+              <div class="music-stats">
+                <span class="plays text-muted">1.7k</span>
+                <i class="fas fa-play text-primary"></i>
+              </div>
+            </div>
+            <div class="music-item">
+              <div class="music-rank">4</div>
+              <div class="music-info">
+                <h5 class="text-dark">Shallow</h5>
+                <p class="text-muted">Lady Gaga & Bradley Cooper</p>
+              </div>
+              <div class="music-stats">
+                <span class="plays text-muted">1.5k</span>
+                <i class="fas fa-play text-primary"></i>
+              </div>
+            </div>
+            <div class="music-item">
+              <div class="music-rank">5</div>
+              <div class="music-info">
+                <h5 class="text-dark">Don't Stop Believin'</h5>
+                <p class="text-muted">Journey</p>
+              </div>
+              <div class="music-stats">
+                <span class="plays text-muted">1.3k</span>
+                <i class="fas fa-play text-primary"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-4">
+            <a href="reservar.html" class="btn btn-outline-primary">Quero Cantar Essas Músicas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Depoimentos -->
+  <section id="depoimentos" class="caixa bg-light">
+    <div class="container">
+      <h2 class="section-title text-center text-dark">O Que Nossos Clientes Dizem</h2>
+      <p class="text-center text-muted mb-5">Experiências reais no SingInGroup</p>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-dark">"A melhor noite com meus amigos! O som é incrível, os drinks são perfeitos e o ambiente é super aconchegante. Já marquei a próxima!"</p>
+            <div class="client-info">
+              <img src="imagens/mariana.jpg" alt="Mariana" class="client-photo">
+              <div>
+                <strong class="text-dark">Mariana S.</strong>
+                <span class="text-muted">Aniversariante</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-dark">"Reservei para meu aniversário e foi perfeito do começo ao fim. A equipe é super atenciosa e as salas são impecáveis. Nota 10!"</p>
+            <div class="client-info">
+              <img src="imagens/lucas.png" alt="Lucas" class="client-photo">
+              <div>
+                <strong class="text-dark">Lucas R.</strong>
+                <span class="text-muted">Cliente Frequente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-dark">"Ambiente incrível, cardápio delicioso e muito divertido. Trouxe meus colegas de trabalho e todos amaram. Voltaremos com certeza!"</p>
+            <div class="client-info">
+              <img src="imagens/cami.png" alt="Camila" class="client-photo">
+              <div>
+                <strong class="text-dark">Camila F.</strong>
+                <span class="text-muted">Primeira Visita</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção CTA -->
+  <section id="cta" class="caixa bg-primary">
+    <div class="container text-center text-white">
+      <h2 class="mb-4">Pronto para Sua Próxima Performance?</h2>
+      <p class="lead mb-5">Reserve sua sala agora e garanta uma noite inesquecível de música e diversão</p>
+      <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+        <a href="reservar.html" class="btn btn-light btn-lg">Reservar Sala</a>
+        <a href="cardapio.html" class="btn btn-outline-light btn-lg">Ver Cardápio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer id="contato" class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <img src="imagens/logo.png" width="142" alt="SingInGroup" class="mb-3">
+          <p class="text-muted">Transformando noites comuns em shows inesquecíveis desde 2020.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-4">
+          <h5 class="text-white">SingInGroup</h5>
+          <ul class="list-unstyled">
+            <li><a href="#sobre" class="text-muted">Sobre Nós</a></li>
+            <li><a href="#destaques" class="text-muted">Eventos</a></li>
+            <li><a href="#" class="text-muted">Carreiras</a></li>
+            <li><a href="#" class="text-muted">Imprensa</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-4">
+          <h5 class="text-white">Serviços</h5>
+          <ul class="list-unstyled">
+            <li><a href="reservar.html" class="text-muted">Reservas</a></li>
+            <li><a href="cardapio.html" class="text-muted">Cardápio</a></li>
+            <li><a href="#" class="text-muted">Eventos Privados</a></li>
+            <li><a href="#" class="text-muted">Presentes</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-4">
+          <h5 class="text-white">Ajuda</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-muted">FAQ</a></li>
+            <li><a href="#" class="text-muted">Contato</a></li>
+            <li><a href="#" class="text-muted">Políticas</a></li>
+            <li><a href="#" class="text-muted">Privacidade</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-4">
+          <h5 class="text-white">Contato</h5>
+          <ul class="list-unstyled">
+            <li class="text-muted">Rua das Flores, 123</li>
+            <li class="text-muted">Pinheiros, São Paulo</li>
+            <li class="text-muted">(11) 9999-9999</li>
+            <li class="text-muted">contato@singingroup.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4 border-light">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="text-muted mb-0">&copy; 2024 SingInGroup. Todos os direitos reservados.</p>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <p class="text-muted mb-0">Feito com ❤️ e 🎵</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  
+  <!-- Script para animações simples -->
+  <script>
+    // Inicializa o carousel com intervalo de 5 segundos
+    $(document).ready(function(){
+      $('#mainCarousel').carousel({
+        interval: 5000
+      });
+    });
+  </script>
+</body>
+</html>

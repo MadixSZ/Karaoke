@@ -1,0 +1,278 @@
+/* reservar.css - Estilos específicos para a página de reserva */
+
+/* Página de reserva */
+.reserve-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.reserve-card {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(0,0,0,0.65);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.reserve-card h2 {
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+/* Estilos do formulário */
+.form-control {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Estilo específico para selects */
+.form-control:is(select) {
+  background: rgba(255,255,255,0.03) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") no-repeat right 0.75rem center/16px 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Opções do select */
+.form-control:is(select) option {
+  background: rgba(0,0,0,0.9);
+  color: #fff;
+  padding: 8px;
+}
+
+.form-control:focus {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(124,37,248,0.8);
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(124,37,248,0.25);
+}
+
+.form-control::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.form-control:invalid {
+  border-color: rgba(255,107,107,0.5);
+}
+
+label {
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.help {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.92rem;
+}
+
+/* Botão roxo */
+.btn-roxo {
+  background: #7c25f8;
+  color: #fff;
+  border-radius: 500px;
+  padding: 10px 22px;
+  font-weight: 700;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-roxo:hover {
+  background: #6207e3;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124,37,248,0.3);
+}
+
+.btn-roxo:disabled {
+  background: rgba(124,37,248,0.5);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Modal styling */
+.modal-content {
+  background: rgba(0,0,0,0.95);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.03);
+}
+
+.summary-line:last-child {
+  border-bottom: none;
+}
+
+.big-amount {
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: #ffd166;
+}
+
+/* Botões do modal */
+.btn-light {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.9);
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* Ícone de sucesso */
+.success-icon {
+  font-size: 48px;
+  color: #7c25f8;
+}
+
+/* Estados de loading */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 2px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mensagens de status */
+.reserve-success {
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.reserve-error {
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Timer do hold */
+.hold-timer {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: #ffd166;
+}
+
+.hold-expired {
+  color: #e74c3c;
+}
+
+/* Feedback de validação */
+.invalid-feedback {
+  display: none;
+  color: #ff6b6b;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.was-validated .form-control:invalid {
+  border-color: #ff6b6b;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Mobile tweaks */
+@media (max-width: 767.98px) {
+  .reserve-card {
+    padding: 1.5rem;
+  }
+  
+  .reserve-page {
+    padding: 1rem;
+  }
+  
+  .form-row.align-items-end .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-row.align-items-end .form-group.text-right {
+    text-align: left !important;
+  }
+  
+  .btn-roxo {
+    width: 100%;
+  }
+  
+  .modal-content {
+    margin: 1rem;
+  }
+  
+  .summary-line {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .d-flex.justify-content-between {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .d-flex.justify-content-between .text-right {
+    text-align: center !important;
+  }
+}
+
+/* Telas pequenas */
+@media (max-width: 576px) {
+  .reserve-card {
+    padding: 1rem;
+  }
+  
+  .btn-roxo {
+    padding: 8px 16px;
+  }
+}

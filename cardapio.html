@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Cardápio — SingInGroup</title>
+  <link rel="icon" href="imagens/favicon.png" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+  
+  <!-- CSS padrão -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- CSS específico da página -->
+  <link rel="stylesheet" href="css/cardapio.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light navbar-transparente">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="imagens/logo.png" width="142" alt="SingInGroup">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+          <i class="fas fa-bars text-white"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-principal">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="reservar.html" class="nav-link">Reservar sala</a></li>
+            <li class="nav-item active"><a href="cardapio.html" class="nav-link">Cardápio</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Contato</a></li>
+            <li class="nav-item divisor d-none d-md-block"></li>
+            <li class="nav-item"><a href="cadastro.html" class="nav-link">Inscrever-se</a></li>
+            <li class="nav-item"><a href="login.html" class="nav-link">Entrar</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Nosso Cardápio</h1>
+      <p class="lead">Porções, pratos e drinks preparados para acompanhar sua noite de música.</p>
+    </div>
+  </section>
+
+  <!-- Cardápio -->
+  <main class="container menu-section">
+
+    <!-- Comidas -->
+    <div class="section mb-4">
+      <div class="section-title">
+        <h3>Comidas</h3>
+        <div class="text-muted">Seleção de petiscos e pratos para compartilhar</div>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Item 1 -->
+        <article class="menu-item" data-name="Batata Rústica" data-price="2700" data-desc="Porção de batatas rústicas com alecrim e sal grosso. Serve 2-3 pessoas.">
+          <div class="thumb" style="background-image:url('imagens/batata.jpg');"></div>
+          <div class="body">
+            <div>
+              <h5>Batata Rústica</h5>
+              <p class="mb-2">Porção com alecrim e sal grosso — ideal pra compartilhar.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 27,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="menu-item" data-name="Asinhas Apimentadas" data-price="4200" data-desc="Asinhas de frango empanadas com molho spicy honey. Serve 2-4 pessoas.">
+          <div class="thumb" style="background-image:url('imagens/asas.jpg');"></div>
+          <div class="body">
+            <div>
+              <h5>Asinhas Apimentadas</h5>
+              <p class="mb-2">Crocrantes por fora, suculentas por dentro.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 42,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="menu-item" data-name="Hambúrguer Artesanal" data-price="3800" data-desc="Pão brioche, carne 180g, queijo cheddar, cebola caramelizada e maionese da casa.">
+          <div class="thumb" style="background-image:url('imagens/burguer.jpg');"></div>
+          <div class="body">
+            <div>
+              <h5>Hambúrguer Artesanal</h5>
+              <p class="mb-2">Sabor caseiro com ingredientes selecionados.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 38,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="menu-item" data-name="Tábua de Frios" data-price="6500" data-desc="Seleção de queijos, embutidos e pães artesanais. Serve 4-6 pessoas.">
+          <div class="thumb" style="background-image:url('imagens/tabua.jpg');"></div>
+          <div class="body">
+            <div>
+              <h5>Tábua de Frios</h5>
+              <p class="mb-2">Perfeita para acompanhar uma mesa de amigos.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 65,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Drinks -->
+    <div class="section mb-4">
+      <div class="section-title">
+        <h3>Drinks</h3>
+        <div class="text-muted">Cocktails clássicos e autorais</div>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-item" data-name="SingIn Mojito" data-price="2900" data-desc="Rum, hortelã, limão, açúcar e água com gás.">
+          <div class="thumb" style="background-image:url('imagens/mojito.jpg'); height:130px;"></div>
+          <div class="body">
+            <div>
+              <h5>SingIn Mojito</h5>
+              <p class="mb-2">Refrescante e aromático.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 29,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Old Fashioned" data-price="3200" data-desc="Bourbon, bitter, açúcar e twist de laranja.">
+          <div class="thumb" style="background-image:url('imagens/oldfashioned.webp'); height:130px;"></div>
+          <div class="body">
+            <div>
+              <h5>Old Fashioned</h5>
+              <p class="mb-2">Clássico e encorpado.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 32,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Mocktail Tropical" data-price="2200" data-desc="Mistura de frutas, suco de laranja e água com gás (sem álcool).">
+          <div class="thumb" style="background-image:url('imagens/mocktail.webp'); height:130px;"></div>
+          <div class="body">
+            <div>
+              <h5>Mocktail Tropical</h5>
+              <p class="mb-2">Opção sem álcool, cheia de sabores.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 22,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Combos -->
+    <div class="section mb-5">
+      <div class="section-title">
+        <h3>Combos & Promoções</h3>
+        <div class="text-muted">Descontos para grupos e aniversários</div>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Combo Drinks + Porções" data-price="9900" data-desc="2 jarras de drinks + 2 porções grandes. Serve até 6 pessoas.">
+          <div class="thumb" style="background-image:url('imagens/combo1.jpg'); height:140px;"></div>
+          <div class="body">
+            <div>
+              <h5>Combo Drinks + Porções</h5>
+              <p class="mb-2">Ótimo para começar a festa.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 99,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Pacote Aniversário" data-price="18000" data-desc="Sala por 2h + bolo + decoração + 2 combos de drinks.">
+          <div class="thumb" style="background-image:url('imagens/aniver.png'); height:140px;"></div>
+          <div class="body">
+            <div>
+              <h5>Pacote Aniversário</h5>
+              <p class="mb-2">Surpreenda o aniversariante.</p>
+            </div>
+            <div>
+              <div class="menu-actions">
+                <div class="price">R$ 180,00</div>
+                <div>
+                  <button class="btn btn-outline-light btn-sm btn-detail">Detalhes</button>
+                  <button class="btn btn-roxo btn-sm btn-add">Adicionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Mini-cart -->
+  <aside class="mini-cart" id="miniCart" aria-live="polite" aria-atomic="true" hidden>
+    <div class="header">
+      <strong>Pedido</strong>
+      <button class="btn btn-sm btn-outline-light" id="clearCart" title="Limpar pedido"><i class="fas fa-trash"></i></button>
+    </div>
+    <div class="items" id="cartItems"></div>
+    <div class="footer">
+      <div>
+        <div class="small">Total</div>
+        <div id="cartTotal" class="price">R$ 0,00</div>
+      </div>
+      <div>
+        <button id="checkoutBtn" class="btn btn-roxo btn-sm">Pedir</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Modal Detalhes -->
+  <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="itemTitle"></h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div id="itemDesc"></div>
+          <div class="mt-3 d-flex justify-content-between align-items-center">
+            <div class="price" id="itemPrice"></div>
+            <div>
+              <label class="sr-only" for="qty">Qtd</label>
+              <input id="itemQty" type="number" value="1" min="1" style="width:64px" class="form-control form-control-sm">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="modalAdd" class="btn btn-roxo">Adicionar ao pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Checkout -->
+  <div class="modal fade checkout-modal" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Finalizar Pedido</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+            <small>Pedido - simulação de checkout</small>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8">
+              <h6 class="mb-3">Resumo do Pedido</h6>
+              <div id="checkoutItemsList" style="max-height: 300px; overflow-y: auto;">
+              </div>
+
+              <div class="mt-4">
+                <h6 class="mb-3">Método de Pagamento</h6>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-light btn-sm pay-method active" data-method="cash">Dinheiro</button>
+                  <button class="btn btn-outline-light btn-sm pay-method" data-method="card">Cartão</button>
+                  <button class="btn btn-outline-light btn-sm pay-method" data-method="pix">PIX</button>
+                  <button class="btn btn-outline-light btn-sm pay-method" data-method="pay_on_exit">Pagar na Saída</button>
+                </div>
+
+                <div id="changeField" class="form-group">
+                  <label class="small">Troco para (se em dinheiro)</label>
+                  <input type="text" class="form-control form-control-sm" id="changeFor" placeholder="Ex: R$ 100,00" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);">
+                </div>
+
+                <div class="form-group">
+                  <label class="small">Observações do pedido</label>
+                  <textarea class="form-control" id="orderNote" rows="2" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);" placeholder="Alguma observação especial..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="checkout-summary">
+                <h6 class="mb-3">Total do Pedido</h6>
+                
+                <div class="d-flex justify-content-between mb-2">
+                  <small>Subtotal</small>
+                  <small id="checkoutSubtotal">R$ 0,00</small>
+                </div>
+                
+                <div class="d-flex justify-content-between mb-2">
+                  <small>Taxa de serviço</small>
+                  <small id="checkoutTax">R$ 0,00</small>
+                </div>
+                
+                <hr style="border-color: rgba(255,255,255,0.1);">
+                
+                <div class="d-flex justify-content-between mb-3">
+                  <strong>Total</strong>
+                  <strong class="text-warning" id="checkoutTotal">R$ 0,00</strong>
+                </div>
+
+                <button id="confirmOrderBtn" class="btn btn-roxo btn-block mt-3">
+                  Confirmar Pedido
+                </button>
+                
+                <button class="btn btn-outline-light btn-block mt-2" data-dismiss="modal">
+                  Continuar Comprando
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="imagens/logo.png" width="100" alt="SingInGroup"> 
+        </div>
+        <div class="col-md-6 text-md-right">
+          <small class="text-muted">SingInGroup &copy; 2024 - Cardápio oficial</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="js/cardapio.js"></script>
+</body>
+</html>

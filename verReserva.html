@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas — SingInGroup</title>
+  <link rel="icon" href="imagens/favicon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('imagens/fundo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      text-align: center;
+      color: #fff;
+    }
+
+    header img {
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    header h1 {
+      display: inline-block;
+      margin: 0 0 0 10px;
+      font-size: 24px;
+      vertical-align: middle;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table thead {
+      background-color: #444;
+      color: #fff;
+    }
+
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    table tr:nth-child(odd) {
+      background-color: #fff;
+    }
+
+    .status {
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .confirmado {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .pendente {
+      background-color: #FF9800;
+      color: white;
+    }
+
+    .cancelado {
+      background-color: #F44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="imagens/logo.png" alt="Logo">
+    <h1>Painel de Reservas</h1>
+  </header>
+
+  <main>
+    <h2>Reservas Ativas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Telefone</th>
+          <th>Sala</th>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Pagamento</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#101</td>
+          <td>Ana Silva</td>
+          <td>(11) 98888-0000</td>
+          <td>Sala VIP 1</td>
+          <td>12/10/2025</td>
+          <td>20h - 23h</td>
+          <td>50% depósito</td>
+          <td><span class="status confirmado">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td>#102</td>
+          <td>João Souza</td>
+          <td>(11) 97777-1111</td>
+          <td>Sala Standard</td>
+          <td>13/10/2025</td>
+          <td>19h - 22h</td>
+          <td>Pendente</td>
+          <td><span class="status pendente">Pendente</span></td>
+        </tr>
+        <tr>
+          <td>#103</td>
+          <td>Maria Oliveira</td>
+          <td>(11) 96666-2222</td>
+          <td>Sala VIP 2</td>
+          <td>14/10/2025</td>
+          <td>21h - 00h</td>
+          <td>50% depósito</td>
+          <td><span class="status cancelado">Cancelado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

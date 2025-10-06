@@ -1,0 +1,57 @@
+/* Fundo e padrão global */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: url('../imagens/fundo.jpg'),
+              url('../imagens/ruido.png'),
+              linear-gradient(50deg, #ff4169, #7c26f8);
+  background-attachment: fixed;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+/* Navbar  */
+nav.navbar-transparente {
+  padding: 8px 0; 
+  background: rgba(0,0,0,0.85);
+  position: relative;
+  width: 100%;
+  z-index: 1030;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #9bf0e1 !important;
+}
+
+.divisor {
+  width: 1px;
+  background: white;
+  margin: 10px 12px; 
+}
+
+/* Logo */
+.navbar-brand img {
+  height: 90px !important;
+  width: auto !important;
+}
+
+/* Footer */
+footer {
+  background: rgba(0,0,0,0.55);
+  padding: 6px 0 3px; 
+  color: #fff;
+  margin-top: auto;
+}
+
+/* Para páginas com hero section */
+.hero {
+  padding-bottom: 2rem;
+}

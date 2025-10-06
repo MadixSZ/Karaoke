@@ -1,0 +1,54 @@
+/* Botão roxo */
+.btn-roxo {
+  background: #7c25f8;
+  color: #fff;
+  border-radius: 500px;
+  padding: 10px 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.btn-roxo:hover {
+  background: #6207e3;
+  color: #fff;
+}
+
+/* Página Cadastro */
+.cadastro-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.cadastro-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.cadastro-card h2 {
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Formulário */
+.form-control {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: rgba(124,37,248,0.8);
+}
+
+.form-check-label {
+  color: rgba(255,255,255,0.8);
+}
